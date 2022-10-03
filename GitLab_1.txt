@@ -1,0 +1,89 @@
+GitLab Overview
+
+* GitLab is an Open-Source Software Developmenet Platform
+* Source Code Management System
+* CI/CD
+
+Git Vs Gitlab 
+
+* Git is a Version Control System 
+   ____           ____
+ |         | --> |        |  -->
+ |____|       |____|
+    v1                v2
+
+* Gitlab is a Source Code Management System 
+     ________
+    |                |
+    |                |   \
+    |_______ |     \       _______
+     Local Git Repo\    |              |
+      ________       /     |              |
+     |                |   /       |______ |
+     |                | /             GitLab
+     |_______ |
+     Local Git Repo 
+     
+* Why use GitLab?
+
+-> GitLab enables collabration among a team of developers with the GitLab Flow.
+-> Built-in CI/CD functionality
+-> It can integrate with other tools
+-> And a plethora of other features
+
+Some basic commands:-
+
+git --version
+git init (projectname) //test-project
+git config --global init.defaultBranch main
+git branch -m main
+git status -->what isthe current status of our git repository
+git -al --> to show all hidden files
+//.git directory is what makes the project directory a git repository without this it just a folder 
+vim hello.txt
+to exit press Esc->:wq->Enter
+git status
+// all the red files are inworking directory and to move it in staging area we have to use
+git add hello.txt
+// files which are shown in green are in staging area
+git rm --cached hello.txt // to unstaged a file and puting it back to working repository
+
+*  When using git for the first time, set the global configs using the commands:
+$ git config --global user.name "your_name"
+$ git config --global user.email your_email
+
+git log --> to show all the commits made by whom and at which time and the hash of the commit  object and hash is the unique 
+identifer of the commit object and its next to it is Head->main what it is saying is the main branch is pointing to this commit
+
+// To work on the main branch file hello.txt we have to create a new branch 
+git branch my-feature 
+// You can check which are branches are in the git repository by simply using and the branch which is highlighted with green 
+wit asterik it means we are currently using that branch
+git branch
+// So, we have to check out the my feature branch
+ // if we use git log it wil show like Head->main, my-feature it means whatever changes we will make will be on the main branch
+ and not on the my-feature branch
+// And to checkout the other branch we can do so by 
+git checkout my-feature
+// To edit a file in vim use vim hello.txt and then press i to edit the file and then for closing use Esc->:wq->Enter
+git restore hello.txt // to restore the original file
+cat hello.txt //We can see the data in the file
+
+//if we change the branch again with git checkout main and we see the cat hello.txt and git log all have the changes made 
+only on the main branch all the details are sepearte from the my-feature branch
+//If we are satisfied with the changes made in the sepearte branch we can merge them to the main branch and for merge we have to be in the main branch
+git merge my-feature
+
+git log --all --oneline // It will show all the commits made on all the branches in one line
+
+git branch -d my-feature //we can delete the branch
+git stash push // we can save the modification without commiting it in stash area
+//And if we want to check what is in the stash area we can use
+git stash list
+
+git stash apply and git stash pop // It will push it to the working directories again
+
+git stash clear // it clear all  the stash 
+//the difference between these two is that pop willl actually change off the stash so that it is no longer listed in stash area 
+
+
